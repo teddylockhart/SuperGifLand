@@ -12,6 +12,7 @@ function displayGameGif() {
 	  method: "GET"
 	}).done(function(response) {
 		var results = response.data;
+		$("#topics").empty();
 
 		for (var i = 0; i < results.length; i++) {
 			var gifDiv = $("<div class='item'>");
