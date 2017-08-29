@@ -1,6 +1,6 @@
 var topics = ["XCOM 2", "Super Mario", "Sonic Mania", "Persona 5", "Street Fighter V", "Horizon Zero Dawn", "The Last of Us", "Breath of the Wild", "Uncharted 4", "Monster Hunter"];
 
-// Initiates Giphy API and generates future gifs
+// Initiates Giphy API, clears out gifs, and generates future gifs
 function displayGameGif() {
 
 	var game = $(this).attr("data-game");

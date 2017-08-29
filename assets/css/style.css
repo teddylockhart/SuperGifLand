@@ -1,0 +1,43 @@
+body {
+	background-color: black;
+}
+
+button {
+	font-family: Helvetica,Arial,sans-serif;
+	margin: 2px;
+	background: black;
+	color: #13d0ca;
+	border: 1px solid #13d0ca;
+}
+
+p {
+	color: #13d0ca;
+}
+
+#addTopic {
+	margin: 6px;
+}
+
+.item {
+	float: left;
+	margin: 10px;
+}
+
+#topic-form {
+	font-family: Helvetica,Arial,sans-serif;
+	float: right;
+	color: #13d0ca;
+}
+
+#topic-input,
+#addTopic {
+	font-family: Helvetica,Arial,sans-serif;
+	background: black;
+	color: #13d0ca;
+	border: 1px solid #13d0ca;
+}
+
+#topic-input {
+	padding: 3px 0;
+	font-size: 18px;
+}
