@@ -1,5 +1,6 @@
 var topics = ["XCOM 2", "Super Mario", "Sonic Mania", "Persona 5", "Street Fighter V", "Horizon Zero Dawn", "The Last of Us", "Breath of the Wild", "Uncharted 4", "Monster Hunter"];
 
+// Initiates Giphy API and generates future gifs
 function displayGameGif() {
 
 	var game = $(this).attr("data-game");
@@ -37,6 +38,7 @@ function displayGameGif() {
 	});	  
 }
 
+// Renders Initial Ten buttons
 function renderButtons() {
 
 	$("#topicButtons").empty();
@@ -51,6 +53,23 @@ function renderButtons() {
 	}
 }
 
+
+// Reacts to clicks on Gif for Play and Pause functions
+$(document).on("click", ".playPause", function() {
+
+    var state = $(this).attr("data-state");
+
+    if (state === "still") {
+     	$(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else if (state === "animate") {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
+
+
+// Reacts to clicks on Submission Button to add new Game Gifs
 $("#addTopic").on("click", function(event) {
 	event.preventDefault();
 	var game = $("#topic-input").val().trim();
@@ -61,18 +80,3 @@ $("#addTopic").on("click", function(event) {
 $(document).on("click", ".game", displayGameGif);
 
 renderButtons();
-
-$(".playPause").on("click", function() {
-
-	alert("I'm here bro");
-
-    var state = $(this).attr("data-state");
-
-    if (state === "still") {
-     	$(this).attr("src", $(this).attr("data-animate"));
-        $(this).attr("data-state", "animate");
-    } else {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
-    }
-});
