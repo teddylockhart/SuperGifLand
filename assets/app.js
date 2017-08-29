@@ -19,10 +19,17 @@ function displayGameGif() {
 
 			var p = $("<p>").text("Rating: " + rating);
 
-			var personImage = $("<img>");
-			personImage.attr("src", results[i].images.fixed_height.url);
+			var gameImage = $("<img>");
 
-			gifDiv.prepend(personImage);
+			gameImage.attr({
+				src : results[i].images.fixed_height_still.url,
+				"data-still" : results[i].images.fixed_height_still.url,
+				"data-animate" : results[i].images.fixed_height.url,
+				"data-state" : "still",
+				class: "playPause"
+			});		
+
+			gifDiv.prepend(gameImage);
 			gifDiv.prepend(p);
 
 			$("#topics").prepend(gifDiv);
@@ -54,3 +61,18 @@ $("#addTopic").on("click", function(event) {
 $(document).on("click", ".game", displayGameGif);
 
 renderButtons();
+
+$(".playPause").on("click", function() {
+
+	alert("I'm here bro");
+
+    var state = $(this).attr("data-state");
+
+    if (state === "still") {
+     	$(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
